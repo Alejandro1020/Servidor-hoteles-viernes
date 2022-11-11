@@ -1,6 +1,7 @@
 import  express  from 'express'
 import {rutasPersonalizadas}from'../Routes/Rutas.js'
 import { conectarConMongo } from '../Database/conexion.js'
+import cors from 'cors'
 
 export class ServidorAPI{
 
@@ -28,6 +29,7 @@ export class ServidorAPI{
     }
 
     activarBody(){
+        this.app.use(cors())
         this.app.use(express.json())
     }
 }
